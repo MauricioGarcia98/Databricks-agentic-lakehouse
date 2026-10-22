@@ -56,8 +56,8 @@ r = requests.get("https://apis.datos.gob.ar/georef/api/provincias", timeout=20)
 print(r.status_code, r.json()["cantidad"])
 ```
 
-Y probá la API de estadísticas del BCRA. Buscá en su página de APIs la **versión vigente** de la API de
-"Estadísticas" y llamá al endpoint que lista las variables. Anotá la URL que funcionó.
+Y probá la API de estadísticas del BCRA: `https://api.bcra.gob.ar/estadisticas/v4.0/monetarias` (la v3.0 ya
+devuelve **410**: si alguna guía vieja te la pasa, es por eso).
 
 - 200 en las dos → ✅.
 - Error de conexión → la cuenta no está verificada o el dominio está bloqueado. Plan B: bajás los JSON en tu máquina
@@ -91,7 +91,7 @@ $$;
 SELECT canal, MEASURE(venta_total) FROM prueba.mv_prueba GROUP BY canal;
 ```
 
-Si te dice que la versión del YAML no es válida, probá con `version: 0.1` y anotá cuál anduvo.
+`version: 1.1` funciona (probado el 2026-10-22).
 
 ### 6. Semántica: dominios, pages y ontology
 
@@ -126,6 +126,13 @@ DROP SCHEMA prueba CASCADE;
 ```
 
 Borrá el job, el pipeline y el Genie space de prueba.
+
+## 🧪 Resultado de la corrida por API (2026-10-22)
+
+Claude Code corrió los pasos 2 a 9 contra tu workspace con el SDK y después borró todo (queda sólo el catálogo
+`andes_farma`, vacío). El resultado está en la matriz de [01 · Arquitectura](../docs/01_arquitectura.md#lo-que-encontró-la-etapa-00-2026-10-22).
+**Te falta mirar en la UI** lo que no tiene API pública: dominios, pages, snippets/ontology, Genie One, Genie Code,
+la pestaña Benchmarks de un space y *Settings → Previews*.
 
 ## ✅ Cómo sabés que terminaste
 

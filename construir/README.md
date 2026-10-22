@@ -14,6 +14,6 @@ Cada etapa tiene la misma forma:
 
 | etapa | estado |
 |---|---|
-| [00 · Verificar Free Edition](00_verificar_free_edition.md) | ⬜ |
+| [00 · Verificar Free Edition](00_verificar_free_edition.md) | 🟡 API ✅, falta la UI |
 | [01 · Las preguntas primero](01_las_preguntas_primero.md) | ⬜ |
 | 02 · Repo, bundle y catálogo | se escribe al cerrar la 01 |
